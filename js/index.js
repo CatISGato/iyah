@@ -58,18 +58,6 @@ function openEditModal(index) {
     document.getElementById('editIndex').value = index; // Assign index value here
 }
 
-// Fungsi untuk menghapus baris dari tabel
-function deleteRow(index) {
-    var table = document.getElementById('data-table');
-    if (index >= 0 && index < table.rows.length) {
-        // Pastikan indeks valid
-        table.deleteRow(index + 1); // Hapus baris berdasarkan indeks (+1 karena baris header dianggap indeks 0)
-        data.splice(index, 1); // Hapus data dari array
-        alert('Baris berhasil dihapus!');
-    } else {
-        alert('Indeks baris tidak valid!');
-    }
-}
 
 // Fungsi untuk melakukan edit data
 function editData() {
@@ -84,12 +72,6 @@ function editData() {
     alert('Data berhasil diubah!');
 }
 
-// Fungsi untuk menghapus data
-function deleteData(index) {
-    data.splice(index, 1);
-    location.reload(); // Refresh tabel
-    alert('Data berhasil dihapus!');
-}
 
 // Memanggil fungsi untuk menampilkan data saat halaman dimuat
 window.onload = function () {
@@ -118,3 +100,25 @@ function updateRowInTable(index) {
     table.rows[index + 1].cells[1].innerHTML = data[index].nama;
     table.rows[index + 1].cells[2].innerHTML = data[index].alamat;
 }
+
+// Fungsi untuk menghapus baris dari tabel dan data dari array
+function deleteRow(index) {
+    // Konfirmasi pengguna sebelum menghapus
+    var confirmation = confirm('Apakah Anda yakin ingin menghapus data ini?');
+    if (confirmation) {
+        // Menghapus data dari array
+        data.splice(index, 1);
+        // Menghapus baris dari tabel
+        var table = document.getElementById('data-table');
+        table.deleteRow(index + 1); // +1 karena ada baris header
+        // Memperbarui indeks pada tombol Edit dan Hapus pada baris setelahnya
+        for (var i = index; i < table.rows.length - 1; i++) {
+            var editButton = table.rows[i + 1].cells[3].querySelector('button');
+            var deleteButton = table.rows[i + 1].cells[4].querySelector('button');
+            editButton.setAttribute('onclick', 'openEditModal(' + i + ')');
+            deleteButton.setAttribute('onclick', 'deleteRow(' + i + ')');
+        }
+        alert('Data berhasil dihapus!');
+    }
+}
+
