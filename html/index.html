@@ -7,46 +7,58 @@
         <link rel="stylesheet" href="/css/index.css" />
     </head>
     <body>
-        <h2>Data Mahasiswa</h2>
-
-        <!-- Tombol untuk menambahkan data -->
-        <button onclick="openModal('addModal')">Tambah Data</button>
-
-        <!-- Tabel untuk menampilkan data -->
-        <table id="data-table">
-            <tr>
-                <th>NIM</th>
-                <th>Nama Lengkap</th>
-                <th>Alamat</th>
-                <th>Aksi</th>
-            </tr>
-            <!-- Data akan dimasukkan di sini -->
-        </table>
-
-        <!-- Modal untuk menambah data -->
-        <div id="addModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('addModal')">&times;</span>
-                <h3>Tambah Data</h3>
-                <input type="text" id="nim" placeholder="NIM" /><br /><br />
-                <input type="text" id="nama" placeholder="Nama Lengkap" /><br /><br />
-                <input type="text" id="alamat" placeholder="Alamat" /><br /><br />
-                <button onclick="addData()">Simpan</button>
+                <table id="heading-table">
+                <tr>
+                    <td><h2>Data Mahasiswa</h2></td>
+                </tr>
+            </table>
+    
+            <!-- Tombol untuk menambahkan data -->
+            <button class="tambah-data" onclick="openModal('addModal')">Tambah Data</button>
+    
+            <!-- Tabel untuk menampilkan data -->
+            <table id="data-table">
+                <tr>
+                    <th>NIM</th>
+                    <th>Nama Lengkap</th>
+                    <th>Buku</th>
+                    <th>Aksi</th>
+                </tr>
+                <!-- Data akan dimasukkan di sini -->
+            </table>
+    
+            <!-- Modal untuk menambah data -->
+            <div id="addModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('addModal')">&times;</span>
+                    <h3>Tambah Data</h3>
+                    <input type="text" id="nim" placeholder="NIM" /><br /><br />
+                    <input type="text" id="nama" placeholder="Nama Lengkap" /><br /><br />
+                    <input type="text" id="buku" placeholder="Buku" /><br /><br />
+                    <button onclick="addData()">Simpan</button>
+                </div>
             </div>
-        </div>
-
-        <!-- Modal untuk mengedit data -->
-        <div id="editModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('editModal')">&times;</span>
-                <h3>Edit Data</h3>
-                <input type="hidden" id="editIndex" />
-                <input type="text" id="editNama" placeholder="Nama Lengkap" /><br /><br />
-                <input type="text" id="editAlamat" placeholder="Alamat" /><br /><br />
-                <button onclick="editData()">Simpan Perubahan</button>
+    
+            <!-- Modal untuk mengedit data -->
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('editModal')">&times;</span>
+                    <h3>Edit Data</h3>
+                    <input type="hidden" id="editIndex" />
+                    <input type="text" id="editNama" placeholder="Nama Lengkap" /><br /><br />
+                    <input type="text" id="editBuku" placeholder="Buku" /><br /><br />
+                    <button onclick="editData()">Simpan Perubahan</button>
+                </div>
             </div>
-        </div>
-
-        <script src="/js/index.js"></script>
+            <!-- Modal untuk menampilkan pesan -->
+            <div id="messageModal" class="modal">
+                <div class="modal-content">
+                 <span class="close" onclick="closeModal('messageModal')">&times;</span>
+                 <h3 id="messageText"></h3>
+            </div>
+         </div>
+    
+            <script src="/js/index.js"></script>
+          
     </body>
 </html>

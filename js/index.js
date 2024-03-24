@@ -1,7 +1,7 @@
 // Data contoh untuk ditampilkan
 var data = [
-    { nim: '123', nama: 'John Doe', alamat: 'Jl. Contoh No. 123' },
-    { nim: '456', nama: 'Jane Smith', alamat: 'Jl. Contoh No. 456' },
+    { nim: '123', nama: 'John Doe', buku: 'Jl. Contoh No. 123' },
+    { nim: '456', nama: 'Jane Smith', buku: 'Jl. Contoh No. 456' },
 ];
 
 // Fungsi untuk menampilkan data
@@ -16,7 +16,7 @@ function displayData() {
         var cell5 = row.insertCell(4);
         cell1.innerHTML = data[i].nim;
         cell2.innerHTML = data[i].nama;
-        cell3.innerHTML = data[i].alamat;
+        cell3.innerHTML = data[i].buku;
         cell4.innerHTML = '<button onclick="openEditModal(' + i + ')">Edit</button>';
         cell5.innerHTML = '<button onclick="deleteRow(' + i + ')">Hapus</button>';
     }
@@ -38,14 +38,14 @@ function closeModal(modalId) {
 function addData() {
     var nim = document.getElementById('nim').value;
     var nama = document.getElementById('nama').value;
-    var alamat = document.getElementById('alamat').value;
-    if (nim && nama && alamat) {
-        data.push({ nim: nim, nama: nama, alamat: alamat });
+    var buku = document.getElementById('buku').value;
+    if (nim && nama && buku) {
+        data.push({ nim: nim, nama: nama,buku: buku });
         closeModal('addModal');
         addRowToTable(data[data.length - 1], data.length - 1); // Tambahkan baris baru ke tabel
-        alert('Data berhasil ditambahkan!');
+        showAlert('Data berhasil ditambahkan!');
     } else {
-        alert('Data tidak lengkap. Harap isi semua kolom.');
+        showAlert('Data tidak lengkap. Harap isi semua kolom.');
     }
 }
 
@@ -53,7 +53,7 @@ function addData() {
 function openEditModal(index) {
     var modal = document.getElementById('editModal');
     document.getElementById('editNama').value = data[index].nama;
-    document.getElementById('editAlamat').value = data[index].alamat;
+    document.getElementById('editBuku').value = data[index].buku;
     modal.style.display = 'block';
     document.getElementById('editIndex').value = index; // Assign index value here
 }
@@ -63,13 +63,13 @@ function openEditModal(index) {
 function editData() {
     var index = parseInt(document.getElementById('editIndex').value);
     var nama = document.getElementById('editNama').value;
-    var alamat = document.getElementById('editAlamat').value;
+    var buku = document.getElementById('editBuku').value;
     data[index].nama = nama;
-    data[index].alamat = alamat;
+    data[index].buku = buku;
     updateRowInTable(index); // Memperbarui baris dalam tabel
     closeModal('editModal');
     // Mengirimkan pesan sukses
-    alert('Data berhasil diubah!');
+    showAlert('Data berhasil diubah!');
 }
 
 
@@ -89,7 +89,7 @@ function addRowToTable(data, index) {
     var cell5 = row.insertCell(4);
     cell1.innerHTML = data.nim;
     cell2.innerHTML = data.nama;
-    cell3.innerHTML = data.alamat;
+    cell3.innerHTML = data.buku;
     cell4.innerHTML = '<button onclick="openEditModal(' + index + ')">Edit</button>';
     cell5.innerHTML = '<button onclick="deleteRow(' + index + ')">Hapus</button>';
 }
@@ -98,7 +98,18 @@ function addRowToTable(data, index) {
 function updateRowInTable(index) {
     var table = document.getElementById('data-table');
     table.rows[index + 1].cells[1].innerHTML = data[index].nama;
-    table.rows[index + 1].cells[2].innerHTML = data[index].alamat;
+    table.rows[index + 1].cells[2].innerHTML = data[index].buku;
+}
+function showAlert(message) {
+    var messageModal = document.getElementById('messageModal');
+    var messageText = document.getElementById('messageText');
+    messageText.innerText = message;
+    messageModal.style.display = 'block';
+}
+
+function closeMessageModal() {
+    var messageModal = document.getElementById('messageModal');
+    messageModal.style.display = 'none';
 }
 
 // Fungsi untuk menghapus baris dari tabel dan data dari array
@@ -118,7 +129,7 @@ function deleteRow(index) {
             editButton.setAttribute('onclick', 'openEditModal(' + i + ')');
             deleteButton.setAttribute('onclick', 'deleteRow(' + i + ')');
         }
-        alert('Data berhasil dihapus!');
+        showAlert('Data berhasil dihapus!');
     }
 }
 
