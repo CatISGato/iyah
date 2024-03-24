@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Mahasiswa</title>
+  
+</head>
+<body>
+
+<h2>Data Mahasiswa</h2>
+
+<!-- Tombol untuk menambahkan data -->
+<button onclick="openModal('addModal')">Tambah Data</button>
+
+<!-- Tabel untuk menampilkan data -->
+<table id="data-table">
+  <tr>
+    <th>NIM</th>
+    <th>Nama Lengkap</th>
+    <th>Alamat</th>
+    <th>Aksi</th>
+  </tr>
+  <!-- Data akan dimasukkan di sini -->
+</table>
+
+<!-- Modal untuk menambah data -->
+<div id="addModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('addModal')">&times;</span>
+    <h3>Tambah Data</h3>
+    <input type="text" id="nim" placeholder="NIM"><br><br>
+    <input type="text" id="nama" placeholder="Nama Lengkap"><br><br>
+    <input type="text" id="alamat" placeholder="Alamat"><br><br>
+    <button onclick="addData()">Simpan</button>
+  </div>
+</div>
+
+<!-- Modal untuk mengedit data -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('editModal')">&times;</span>
+    <h3>Edit Data</h3>
+    <input type="hidden" id="editIndex">
+    <input type="text" id="editNama" placeholder="Nama Lengkap"><br><br>
+    <input type="text" id="editAlamat" placeholder="Alamat"><br><br>
+    <button onclick="editData()">Simpan Perubahan</button>
+  </div>
+</div>
+
+</body>
+</html>
