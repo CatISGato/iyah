@@ -13,10 +13,12 @@ function displayData() {
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
         cell1.innerHTML = data[i].nim;
         cell2.innerHTML = data[i].nama;
         cell3.innerHTML = data[i].alamat;
         cell4.innerHTML = '<button onclick="openEditModal(' + i + ')">Edit</button>';
+        cell5.innerHTML = '<button onclick="deleteRow(' + i + ')">Hapus</button>';
     }
 }
 
@@ -56,6 +58,19 @@ function openEditModal(index) {
     document.getElementById('editIndex').value = index; // Assign index value here
 }
 
+// Fungsi untuk menghapus baris dari tabel
+function deleteRow(index) {
+    var table = document.getElementById('data-table');
+    if (index >= 0 && index < table.rows.length) {
+        // Pastikan indeks valid
+        table.deleteRow(index + 1); // Hapus baris berdasarkan indeks (+1 karena baris header dianggap indeks 0)
+        data.splice(index, 1); // Hapus data dari array
+        alert('Baris berhasil dihapus!');
+    } else {
+        alert('Indeks baris tidak valid!');
+    }
+}
+
 // Fungsi untuk melakukan edit data
 function editData() {
     var index = parseInt(document.getElementById('editIndex').value);
@@ -89,10 +104,12 @@ function addRowToTable(data, index) {
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
     cell1.innerHTML = data.nim;
     cell2.innerHTML = data.nama;
     cell3.innerHTML = data.alamat;
     cell4.innerHTML = '<button onclick="openEditModal(' + index + ')">Edit</button>';
+    cell5.innerHTML = '<button onclick="deleteRow(' + index + ')">Hapus</button>';
 }
 
 // Fungsi untuk memperbarui baris dalam tabel dengan data yang telah diubah
