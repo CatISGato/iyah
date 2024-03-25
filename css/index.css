@@ -18,28 +18,28 @@ body::before {
 
 
 #heading-table {
-  margin-bottom: 20px; /* Berikan jarak bawah */
-  width: 100%; /* Lebar penuh */
-  border-collapse: collapse; /* Gabungkan border cell */
+  margin-bottom: 20px; 
+  width: 100%; 
+  border-collapse: collapse; 
   background-color: indigo;
   margin-top: 0;
 }
 
 #heading-table td {
-  text-align: center; /* Pusatkan teks */
+  text-align: center; 
 }
 
 #heading-table h2 {
-  color: #7ccd20; /* Warna teks */
-  font-size: 24px; /* Ukuran font */
+  color: #7ccd20; 
+  font-size: 24px; 
 }
 
-/* CSS untuk styling tabel */
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  background-color: aliceblue;
+  background-color: rgb(221, 207, 188);
 }
 
 th, td {
@@ -52,7 +52,7 @@ th {
   background-color: #b153d3;
 }
 
-/* CSS untuk styling tombol */
+
 button {
   padding: 10px 20px;
   background-color: #007bff;
@@ -70,7 +70,7 @@ button:hover {
   background-color: #0acad8;
 }
 
-/* CSS untuk styling modal */
+
 .modal {
   display: none;
   position: fixed;
@@ -119,4 +119,8 @@ button {
   width: auto;
   padding: 10px 20px;
   margin-top: 10px;
+}
+
+#data-table button {
+  margin: 10px;
 }

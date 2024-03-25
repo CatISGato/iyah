@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data Mahasiswa</title>
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
@@ -13,12 +13,12 @@
         <table id="heading-table">
             <tr>
                 <td>
-                    <h2>Data Mahasiswa</h2>
+                    <h2>Data Mahasiswa Untuk Peminjaman Buku</h2>
                 </td>
             </tr>
         </table>
     
-        <!-- Tabel untuk menampilkan data -->
+        
         <table id="data-table">
             <tr>
                 <th>NIM</th>
@@ -26,16 +26,16 @@
                 <th>Buku</th>
                 <th>Aksi</th>
             </tr>
-            <!-- Data akan dimasukkan di sini -->
+           
         </table>
 
         <div class="tambah-data">
-            <!-- Tombol untuk menambahkan data -->
+            
             <button class="" onclick="openModal('addModal')">Tambah Data</button>
         </div>
     </div>
 
-    <!-- Modal untuk menambah data -->
+   
     <div id="addModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('addModal')">&times;</span>
@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <!-- Modal untuk mengedit data -->
+    
     <div id="editModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('editModal')">&times;</span>
@@ -58,7 +58,7 @@
             <button onclick="editData()">Simpan Perubahan</button>
         </div>
     </div>
-    <!-- Modal untuk menampilkan pesan -->
+    
     <div id="messageModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('messageModal')">&times;</span>
@@ -66,7 +66,7 @@
         </div>
     </div>
 
-    <script src="/js/index.js"></script>
+    <script src="index.js"></script>
 
 </body>
 

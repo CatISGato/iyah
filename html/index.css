@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('pngtree-an-old-bookcase-in-a-library-image_2642908.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8; 
+  z-index: -1; 
+}
+
+
+#heading-table {
+  margin-bottom: 20px; 
+  width: 100%; 
+  border-collapse: collapse; 
+  background-color: indigo;
+  margin-top: 0;
+}
+
+#heading-table td {
+  text-align: center; 
+}
+
+#heading-table h2 {
+  color: #7ccd20; 
+  font-size: 24px; 
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: rgb(221, 207, 188);
+}
+
+th, td {
+  border: 1px solid #d831ac;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #b153d3;
+}
+
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  
+}
+.tambah-data {
+  display: flex;
+  justify-content: center;
+}
+button:hover {
+  background-color: #0acad8;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #7f77c4;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: auto;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+#data-table button {
+  margin: 10px;
+}
